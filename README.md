@@ -25,7 +25,7 @@ endpoints and the web UI.
 
 The item's fields are rendered in the web UI by the custom panel
 [`MixedSolutionPanel.vue`](https://github.com/Matgenix/datalab-item-plugin-example-custom-vue/blob/main/src/datalab_item_plugin_example_custom_vue/webapp/MixedSolutionPanel.vue),
-which is discovered and bundled into the webapp by running `uv run invoke dev.collect-plugin-panels`
-in the *datalab* repository after installing this plugin (see [INSTALL.md](INSTALL.md)).
+which is discovered and bundled automatically when *datalab* installs its declared plugins and
+builds the webapp (see [INSTALL.md](INSTALL.md)).
 
 Releases are created via semantic version tags on [GitHub](https://github.com/Matgenix/datalab-item-plugin-example-custom-vue/releases).

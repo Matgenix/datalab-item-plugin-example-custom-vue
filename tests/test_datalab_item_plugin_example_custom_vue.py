@@ -22,12 +22,12 @@ def test_model_registers_with_datalab():
     from pydatalab.models import ITEM_MODELS, register_item_model
 
     register_item_model(MixedSolution)
-    assert ITEM_MODELS["mixed_solutions"] is MixedSolution
+    assert ITEM_MODELS["_mixed_solutions"] is MixedSolution
 
 
 def test_model_round_trip():
     item = MixedSolution(item_id="test-item-1")
-    assert item.type == "mixed_solutions"
+    assert item.type == "_mixed_solutions"
     assert MixedSolution(**item.model_dump()).item_id == "test-item-1"
 
 
