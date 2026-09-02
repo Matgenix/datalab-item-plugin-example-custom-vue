@@ -149,14 +149,13 @@ export default {
     components() {
       return this.itemData.components || [];
     },
-    // Pull each referenced solution's concentration (normalised to mol/L) and solute label.
+    // Solution concentrations are already stored canonically in mol/L.
     resolvedComponents() {
       return this.components.map((component) => {
         const data = component.solution?.item_id
           ? this.$store.state.all_item_data[component.solution.item_id]
           : null;
-        let concentration = data ? Number(data.concentration) : NaN;
-        if (data?.concentration_unit === "mmol/L") concentration /= 1000;
+        const concentration = data ? Number(data.concentration) : NaN;
         const solute = data?.solute?.name || data?.solute?.item_id || null;
         return {
           volume: Number(component.volume) || 0,
