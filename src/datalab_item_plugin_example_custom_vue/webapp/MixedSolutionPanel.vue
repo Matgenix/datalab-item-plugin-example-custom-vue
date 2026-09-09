@@ -45,10 +45,15 @@
                     </button>
                   </div>
                 </div>
+                <!--
+                  The companion plugin declares `type: Literal["solutions"]`, but the
+                  server namespaces every custom item type with a leading underscore
+                  when registering it, so items are stored and searched as `_solutions`.
+                -->
                 <ItemSelect
                   v-else
                   :model-value="component.solution"
-                  :types-to-query="['solutions']"
+                  :types-to-query="['_solutions']"
                   @update:model-value="updateComponent(index, 'solution', $event)"
                 />
               </td>
