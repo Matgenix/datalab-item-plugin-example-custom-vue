@@ -14,14 +14,17 @@ datalab-item-plugin-example-custom-vue is a [*datalab*](https://datalab-org.io) 
 > panel. Its companion example,
 > [datalab-item-plugin-example](https://github.com/Matgenix/datalab-item-plugin-example),
 > shows the simpler kind (fields rendered automatically from schema annotations, no
-> JavaScript) and provides the `solutions` item type this plugin's items are blended from —
-> install both together.
+> JavaScript) and provides the `example-solutions` item type this plugin's items are blended
+> from — install both together.
 
-It registers the custom item type `mixed_solutions` — a solution blended by volume from
-`solutions` items (implemented by
+It registers the canonical custom item type `example-mixed-solutions` — a solution blended by
+volume from `example-solutions` items (implemented by
 [`datalab_item_plugin_example_custom_vue.models.MixedSolution`](https://github.com/Matgenix/datalab-item-plugin-example-custom-vue/blob/main/src/datalab_item_plugin_example_custom_vue/models.py)) — with *datalab*
 via the `pydatalab.item_types` entry point, making it available through the standard item
 endpoints and the web UI.
+
+The complete slug is used wherever the type is referenced. Its namespace and type name are
+conceptual components only; *datalab* does not store or query them separately at present.
 
 The item's fields are rendered in the web UI by the custom panel
 [`MixedSolutionPanel.vue`](https://github.com/Matgenix/datalab-item-plugin-example-custom-vue/blob/main/src/datalab_item_plugin_example_custom_vue/webapp/MixedSolutionPanel.vue),

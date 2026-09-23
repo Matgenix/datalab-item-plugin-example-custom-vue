@@ -1,7 +1,8 @@
 <!--
-  Custom panel for the `mixed_solutions` example item type: a list of `solutions`
-  references, each with a volume. Pulls each solution's concentration via getItemData
-  and computes the composition bar and resulting per-solute concentrations.
+  Custom panel for the `example-mixed-solutions` item type: a list of
+  `example-solutions` references, each with a volume. Pulls each solution's
+  concentration via getItemData and computes the composition bar and resulting
+  per-solute concentrations.
 -->
 <template>
   <div class="container mixed-solution-panel mt-3">
@@ -45,15 +46,10 @@
                     </button>
                   </div>
                 </div>
-                <!--
-                  The companion plugin declares `type: Literal["solutions"]`, but the
-                  server namespaces every custom item type with a leading underscore
-                  when registering it, so items are stored and searched as `_solutions`.
-                -->
                 <ItemSelect
                   v-else
                   :model-value="component.solution"
-                  :types-to-query="['_solutions']"
+                  :types-to-query="['example-solutions']"
                   @update:model-value="updateComponent(index, 'solution', $event)"
                 />
               </td>

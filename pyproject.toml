@@ -34,7 +34,7 @@ changelog = "https://github.com/Matgenix/datalab-item-plugin-example-custom-vue/
 # as a custom item type. Add one line per item model implemented in this plugin;
 # the entry point name should match the model's `type` literal.
 [project.entry-points.'pydatalab.item_types']
-mixed_solutions = "datalab_item_plugin_example_custom_vue.models:MixedSolution"
+example-mixed-solutions = "datalab_item_plugin_example_custom_vue.models:MixedSolution"
 
 [tool.setuptools.packages.find]
 where = ["src"]

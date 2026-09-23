@@ -11,7 +11,11 @@ def test_version():
 
 def test_entry_point_is_registered():
     """The entry point is how datalab discovers this plugin at startup."""
-    eps = [ep for ep in entry_points(group="pydatalab.item_types") if ep.name == "mixed_solutions"]
+    eps = [
+        ep
+        for ep in entry_points(group="pydatalab.item_types")
+        if ep.name == "example-mixed-solutions"
+    ]
     assert len(eps) == 1
     assert eps[0].load() is MixedSolution
 
@@ -22,12 +26,12 @@ def test_model_registers_with_datalab():
     from pydatalab.models import ITEM_MODELS, register_item_model
 
     register_item_model(MixedSolution)
-    assert ITEM_MODELS["_mixed_solutions"] is MixedSolution
+    assert ITEM_MODELS["example-mixed-solutions"] is MixedSolution
 
 
 def test_model_round_trip():
     item = MixedSolution(item_id="test-item-1")
-    assert item.type == "_mixed_solutions"
+    assert item.type == "example-mixed-solutions"
     assert MixedSolution(**item.model_dump()).item_id == "test-item-1"
 
 
