@@ -8,7 +8,7 @@ copyright_holder: ''
 copyright_holder_email: ''
 include_custom_panel: true
 item_class_name: MixedSolution
-item_type_name: example-mixed-solutions
+item_type_name: 'example:mixed-solutions'
 package_name: datalab_item_plugin_example_custom_vue
 project_name: datalab-item-plugin-example-custom-vue
 repository_name: datalab-item-plugin-example-custom-vue

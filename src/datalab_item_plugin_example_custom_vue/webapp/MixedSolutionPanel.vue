@@ -1,6 +1,6 @@
 <!--
-  Custom panel for the `example-mixed-solutions` item type: a list of
-  `example-solutions` references, each with a volume. Pulls each solution's
+  Custom panel for the `example:mixed-solutions` item type: a list of
+  `example:solutions` references, each with a volume. Pulls each solution's
   concentration via getItemData and computes the composition bar and resulting
   per-solute concentrations.
 -->
@@ -49,7 +49,7 @@
                 <ItemSelect
                   v-else
                   :model-value="component.solution"
-                  :types-to-query="['example-solutions']"
+                  :types-to-query="['example:solutions']"
                   @update:model-value="updateComponent(index, 'solution', $event)"
                 />
               </td>
