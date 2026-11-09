@@ -1,7 +1,7 @@
 """A ``MixedSolution`` custom item type registered via this package's
 ``pydatalab.item_types`` entry point, rendered with a custom Vue panel.
 
-It is blended from ``solutions`` items — the type provided by the companion
+It is blended from ``example:solutions`` items — the type provided by the companion
 plugin `datalab-item-plugin-example` — so both plugins should be installed
 together. The panel (``webapp/MixedSolutionPanel.vue``) pulls each linked
 solution's concentration and computes the resulting per-solute concentrations
@@ -21,7 +21,7 @@ from pydatalab.models.utils import BaseModel, EntryReference
 
 
 class MixtureComponent(BaseModel):
-    """A volume of one ``solutions`` item taken into a :class:`MixedSolution`."""
+    """A volume of one ``example:solutions`` item taken into a :class:`MixedSolution`."""
 
     solution: EntryReference | None = None
     volume: float | None = None
@@ -29,14 +29,14 @@ class MixtureComponent(BaseModel):
 
 
 class MixedSolution(Sample):
-    """A solution blended from one or more ``solutions`` items by volume."""
+    """A solution blended from one or more ``example:solutions`` items by volume."""
 
     model_config = ConfigDict(
         title="Mixed Solution", json_schema_extra={"datalab_ui_color": "#b5651d"}
     )
 
-    # The unique type identifier for this model; it must not collide with a
-    # built-in type (samples, cells, starting_materials, equipment) or another plugin.
-    type: Literal["mixed_solutions"] = "mixed_solutions"  # type: ignore[assignment]
+    # The canonical type identifier for this model, `<namespace>:<type-name>`. It is
+    # stored in the database and used in API payloads, so keep it stable.
+    type: Literal["example:mixed_solutions"] = "example:mixed_solutions"  # type: ignore[assignment]
 
     components: list[MixtureComponent] = Field(default_factory=list)
